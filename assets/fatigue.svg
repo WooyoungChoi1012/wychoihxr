@@ -1,0 +1,51 @@
+<svg width="1000" height="570" viewBox="0 0 1000 570" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Visual fatigue prediction">
+<rect width="1000" height="570" fill="#F3F6F4"/>
+<g id="Frame">
+<text id="03 / RESEARCH CONCEPT" fill="#58767A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="15" font-weight="600" letter-spacing="0em"><tspan x="40" y="53.4545">03 / RESEARCH CONCEPT</tspan></text>
+<text id="Visual fatigue prediction_2" fill="#173440" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="32" font-weight="600" letter-spacing="0em"><tspan x="40" y="99.1364">Visual fatigue prediction</tspan></text>
+</g>
+<g id="Concept illustration">
+<rect id="Rectangle" x="66" y="200" width="258" height="223" rx="11" fill="white" stroke="#D5DFDC" stroke-width="2"/>
+<text id="Input information" fill="#263C48" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="21" font-weight="600" letter-spacing="0em"><tspan x="83" y="238.636">Input information</tspan></text>
+<rect id="Rectangle_2" x="371" y="200" width="258" height="223" rx="11" fill="white" stroke="#D5DFDC" stroke-width="2"/>
+<text id="Prediction model" fill="#263C48" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="21" font-weight="600" letter-spacing="0em"><tspan x="388" y="238.636">Prediction model</tspan></text>
+<rect id="Rectangle_3" x="676" y="200" width="258" height="223" rx="11" fill="white" stroke="#D5DFDC" stroke-width="2"/>
+<text id="Adaptive control" fill="#263C48" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="21" font-weight="600" letter-spacing="0em"><tspan x="693" y="238.636">Adaptive control</tspan></text>
+<path id="Vector" d="M95 332H119L130 304L148 360L167 282L188 342L208 322H246L266 302L292 332" stroke="#0C7278" stroke-width="3"/>
+<path id="Vector_2" d="M420 279H505" stroke="#CAD7D8" stroke-width="2"/>
+<path id="Vector_3" d="M420 279L505 329" stroke="#CAD7D8" stroke-width="2"/>
+<path id="Vector_4" d="M420 279L505 379" stroke="#CAD7D8" stroke-width="2"/>
+<path id="Vector_5" d="M420 329L505 279" stroke="#CAD7D8" stroke-width="2"/>
+<path id="Vector_6" d="M420 329H505" stroke="#CAD7D8" stroke-width="2"/>
+<path id="Vector_7" d="M420 329L505 379" stroke="#CAD7D8" stroke-width="2"/>
+<path id="Vector_8" d="M420 379L505 279" stroke="#CAD7D8" stroke-width="2"/>
+<path id="Vector_9" d="M420 379L505 329" stroke="#CAD7D8" stroke-width="2"/>
+<path id="Vector_10" d="M420 379H505" stroke="#CAD7D8" stroke-width="2"/>
+<path id="Vector_11" d="M505 279L590 299" stroke="#CAD7D8" stroke-width="2"/>
+<path id="Vector_12" d="M505 279L590 359" stroke="#CAD7D8" stroke-width="2"/>
+<path id="Vector_13" d="M505 329L590 299" stroke="#CAD7D8" stroke-width="2"/>
+<path id="Vector_14" d="M505 329L590 359" stroke="#CAD7D8" stroke-width="2"/>
+<path id="Vector_15" d="M505 379L590 299" stroke="#CAD7D8" stroke-width="2"/>
+<path id="Vector_16" d="M505 379L590 359" stroke="#CAD7D8" stroke-width="2"/>
+<circle id="Ellipse" cx="420" cy="279" r="10" fill="#0C7278"/>
+<circle id="Ellipse_2" cx="505" cy="279" r="10" fill="#627CC7"/>
+<circle id="Ellipse_3" cx="420" cy="329" r="10" fill="#0C7278"/>
+<circle id="Ellipse_4" cx="505" cy="329" r="10" fill="#627CC7"/>
+<circle id="Ellipse_5" cx="420" cy="379" r="10" fill="#0C7278"/>
+<circle id="Ellipse_6" cx="505" cy="379" r="10" fill="#627CC7"/>
+<circle id="Ellipse_7" cx="590" cy="299" r="10" fill="#D29363"/>
+<circle id="Ellipse_8" cx="590" cy="359" r="10" fill="#D29363"/>
+<rect id="Rectangle_4" x="708" y="283" width="187" height="8" rx="4" fill="#DCE5E3"/>
+<circle id="Ellipse_9" cx="750" cy="287" r="10" fill="#0C7278"/>
+<rect id="Rectangle_5" x="708" y="317" width="187" height="8" rx="4" fill="#DCE5E3"/>
+<circle id="Ellipse_10" cx="785" cy="321" r="10" fill="#0C7278"/>
+<rect id="Rectangle_6" x="708" y="351" width="187" height="8" rx="4" fill="#DCE5E3"/>
+<circle id="Ellipse_11" cx="820" cy="355" r="10" fill="#0C7278"/>
+<path id="Vector_17" d="M330 319H359M349 327L359 319L349 311" stroke="#84959B" stroke-width="2"/>
+<path id="Vector_18" d="M635 319H664M654 327L664 319L654 311" stroke="#84959B" stroke-width="2"/>
+<text id="Prediction-informed XR adaptation" fill="#58767A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="18" letter-spacing="0em"><tspan x="65" y="468.545">Prediction-informed XR adaptation</tspan></text>
+</g>
+<text id="Schematic illustration &#194;&#183; not measured results" fill="#607875" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="15" letter-spacing="0em"><tspan x="40" y="512.455">Schematic illustration &#xb7; not measured results</tspan></text>
+</g>
+</svg>
