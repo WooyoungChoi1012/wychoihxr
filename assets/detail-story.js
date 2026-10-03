@@ -21,9 +21,40 @@
   let queued = false;
   let nudge = null;
 
+  function syncReveals() {
+    const entranceLine = innerHeight * 0.86;
+    const focusedElement = document.activeElement?.matches(':focus-visible') ? document.activeElement : null;
+    chapters.forEach((chapter, index) => {
+      const focused = chapter.contains(focusedElement);
+      const reached = index < active || (index === active && (
+        chapter.getBoundingClientRect().top < entranceLine || focused || stage?.contains(focusedElement)
+      ));
+      chapter.classList.toggle('is-revealed', !reducedMotion.matches && reached);
+      const inlineFigure = chapter.querySelector('.story-figure');
+      const figureReached = index < active || (index === active && reached && (
+        !inlineFigure || inlineFigure.getBoundingClientRect().top < entranceLine || inlineFigure.contains(focusedElement)
+      ));
+      chapter.classList.toggle('is-figure-revealed', !reducedMotion.matches && figureReached);
+    });
+  }
+
+  function preserveFocus(element, fallback = null) {
+    if (!element) return;
+    const target = element.isConnected ? element : fallback;
+    if (!target || !story.contains(target)) return;
+    if (target === fallback && !target.hasAttribute('tabindex')) {
+      target.setAttribute('tabindex', '-1');
+      target.addEventListener('blur', () => target.removeAttribute('tabindex'), { once: true });
+    }
+    if (document.activeElement !== target) target.focus({ preventScroll: true });
+  }
+
   function setActive(index, force = false) {
     if (index === active && !force) return;
-    const focusedFigure = figures.find(figure => figure.querySelector(':focus-visible'));
+    const focusedElement = document.activeElement?.matches(':focus-visible') ? document.activeElement : null;
+    const focusedChapter = chapters.find(chapter => chapter.contains(focusedElement));
+    if (!force && focusedChapter && focusedChapter !== chapters[index]) return;
+    const focusedFigure = figures.find(figure => figure.contains(focusedElement));
     if (!force && focusedFigure && pairedFigures[index] !== focusedFigure) return;
     const previous = active;
     const previousFigure = pairedFigures[previous];
@@ -33,6 +64,7 @@
       chapter.classList.toggle('is-before', i < index);
       chapter.classList.toggle('is-after', i > index);
     });
+    syncReveals();
     if (!stage) return;
     const paired = pairedFigures[index];
     nudge?.cancel();
@@ -60,6 +92,7 @@
   }
 
   function restore() {
+    const focused = story.contains(document.activeElement) ? document.activeElement : null;
     nudge?.cancel();
     figures.forEach(figure => {
       placeholders.get(figure)?.replaceWith(figure);
@@ -71,15 +104,18 @@
     stage = null;
     buttons = [];
     story.classList.remove('story-enhanced');
+    preserveFocus(focused, chapters[Math.max(active, 0)]);
   }
 
   function configureLayout() {
+    story.classList.toggle('story-motion-ready', !reducedMotion.matches);
     const shouldEnhance = desktop.matches && !reducedMotion.matches && CSS.supports('position', 'sticky');
     if (!shouldEnhance) {
       if (stage) restore();
       return;
     }
     if (stage) return;
+    const focused = story.contains(document.activeElement) ? document.activeElement : null;
     stage = document.createElement('aside');
     stage.className = 'story-stage';
     stage.setAttribute('aria-label', 'Figure paired with the current section');
@@ -123,6 +159,7 @@
     story.prepend(stage);
     story.classList.add('story-enhanced');
     setActive(Math.max(active, 0), true);
+    preserveFocus(focused);
   }
 
   function update() {
@@ -133,6 +170,7 @@
       if (chapter.getBoundingClientRect().top <= readingLine) index = i;
     });
     setActive(index);
+    syncReveals();
   }
 
   function queueUpdate() {
@@ -149,10 +187,11 @@
     reducedMotion.addEventListener('change', () => { configureLayout(); queueUpdate(); });
     story.addEventListener('focusout', queueUpdate);
     chapters.forEach((chapter, index) => {
-      chapter.addEventListener('focusin', () => setActive(index));
+      chapter.addEventListener('focusin', () => { setActive(index); syncReveals(); });
     });
   } catch {
     restore();
-    chapters.forEach(chapter => chapter.classList.remove('is-current', 'is-before', 'is-after'));
+    story.classList.remove('story-motion-ready');
+    chapters.forEach(chapter => chapter.classList.remove('is-current', 'is-before', 'is-after', 'is-revealed', 'is-figure-revealed'));
   }
 })();

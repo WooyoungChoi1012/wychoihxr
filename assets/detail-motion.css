@@ -1,0 +1,83 @@
+/* Applied only after detail-story.js has prepared reversible reading states. */
+@media (prefers-reduced-motion: no-preference) {
+  .detail-story.story-motion-ready .story-copy {
+    transition: transform .75s cubic-bezier(.16,1,.3,1), opacity .6s ease;
+  }
+
+  .detail-story.story-motion-ready .story-chapter.is-after .story-copy,
+  .detail-story.story-motion-ready .story-chapter.is-current:not(.is-revealed) .story-copy {
+    opacity: 0;
+    transform: translateY(56px);
+    pointer-events: none;
+  }
+
+  .detail-story.story-motion-ready .story-chapter.is-before .story-copy {
+    opacity: .88;
+    transform: translateY(-20px);
+    pointer-events: auto;
+  }
+
+  .detail-story.story-motion-ready .story-chapter.is-current.is-revealed .story-copy {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  /* Inline chapters retain their natural height and paired reading order. */
+  .detail-story.story-motion-ready:not(.story-enhanced) .story-figure {
+    transition: transform .85s cubic-bezier(.16,1,.3,1), opacity .65s ease;
+  }
+
+  .detail-story.story-motion-ready:not(.story-enhanced) .story-chapter.is-after .story-figure,
+  .detail-story.story-motion-ready:not(.story-enhanced) .story-chapter.is-current:not(.is-figure-revealed) .story-figure {
+    opacity: 0;
+    transform: translateY(72px);
+    pointer-events: none;
+    transition-delay: .1s;
+  }
+
+  .detail-story.story-motion-ready:not(.story-enhanced) .story-chapter.is-before .story-figure {
+    opacity: .92;
+    transform: translateY(-16px);
+    pointer-events: auto;
+    transition-delay: 0s;
+  }
+
+  .detail-story.story-motion-ready:not(.story-enhanced) .story-chapter.is-current.is-figure-revealed .story-figure {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    transition-delay: .18s;
+  }
+
+  /* Keep the desktop deck; increase its forward/backward slide distance. */
+  .detail-story.story-motion-ready.story-enhanced .story-deck .story-figure {
+    transform: translateY(54px);
+    transition: opacity .7s ease, transform .85s cubic-bezier(.16,1,.3,1), visibility 0s linear .85s;
+  }
+
+  .detail-story.story-motion-ready.story-enhanced .story-deck .story-figure.was-before {
+    transform: translateY(-54px);
+  }
+
+  .detail-story.story-motion-ready.story-enhanced .story-deck .story-figure.is-after {
+    transform: translateY(54px);
+  }
+
+  .detail-story.story-motion-ready.story-enhanced .story-deck .story-figure.is-active {
+    transform: translateY(0);
+    transition: opacity .7s ease, transform .85s cubic-bezier(.16,1,.3,1), visibility 0s linear 0s;
+  }
+}
+
+/* JS-disabled content has no motion-ready class; reduced motion is fully visible. */
+@media (prefers-reduced-motion: reduce) {
+  .detail-story .story-copy,
+  .detail-story .story-figure {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    pointer-events: auto !important;
+    transition: none !important;
+  }
+}
