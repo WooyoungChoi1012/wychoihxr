@@ -1,4 +1,4 @@
-/* Spatial Research detail-page appearance. Story layout and motion remain in style.css. */
+/* Spatial Research detail appearance and figure sizing. Story motion stays in its shared styles. */
 .spatial-theme .detail {
   --detail-ink: #f2f5fb;
   --detail-muted: #a0aec3;
@@ -6,6 +6,8 @@
   --detail-violet: #b19aff;
   --detail-panel: #0d1726;
   --detail-line: #273243;
+  max-width: 1480px;
+  padding-inline: clamp(22px, 3.5vw, 52px);
   padding-top: 54px;
   color: var(--detail-muted);
   font-family: Inter, Arial, Helvetica, sans-serif;
@@ -137,7 +139,16 @@
 .spatial-theme .detail .detail-figure figcaption {
   color: var(--detail-muted);
   font-size: .82rem;
-  line-height: 1.75;
+  line-height: 1.5;
+}
+
+.spatial-theme .detail .figure-caption-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-top: 8px;
+  font-size: .75rem;
+  line-height: 1.5;
 }
 
 .spatial-theme .detail .detail-figure figcaption a {
@@ -266,6 +277,22 @@
   font-size: .9rem;
 }
 
+@media (min-width: 960px) {
+  .spatial-theme .detail .detail-story.story-enhanced {
+    grid-template-columns: minmax(0, 1.9fr) minmax(300px, 1fr);
+    gap: clamp(28px, 3vw, 48px);
+  }
+
+  .spatial-theme .detail .detail-story.story-enhanced .story-stage {
+    padding: 14px;
+  }
+
+  .spatial-theme .detail .detail-story.story-enhanced .story-deck .story-figure img {
+    max-height: min(680px, calc(100svh - 340px));
+    background: #080e18;
+  }
+}
+
 @media (max-width: 760px) {
   .spatial-theme .detail {
     padding-top: 35px;
@@ -313,7 +340,7 @@
 
   .spatial-theme .detail .detail-figure figcaption {
     font-size: .8rem;
-    line-height: 1.8;
+    line-height: 1.5;
   }
 
   .spatial-theme .detail .publication-credit {
